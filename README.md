@@ -112,7 +112,7 @@ You can now use the output of this command
 as a valid token within Karhoo SDK:
 
 ```kotlin
-// Initialization with clientId
+/* Initializing SDK with your clientId */
 KarhooUISDK.setConfiguration(object: KarhooUISDKConfiguration {
     // ...
     override fun environment() = KarhooEnvironment.Sandbox()
@@ -123,14 +123,14 @@ KarhooUISDK.setConfiguration(object: KarhooUISDKConfiguration {
 
 // ...
 
-// Authenticating with your token
+/* Authenticating with your token:
+   https://developer.karhoo.com/reference#login-token */
 KarhooApi.authService.login(token = "eyJra...zRQ7Tn3A").execute {
     when (it) {
         is Resource.Success -> { /* successful auth */ }
         is Resource.Failure -> { /* unsuccessful auth */ }
     }
 }
-
 ```
 
 ## 4. Implementing it in your backend
