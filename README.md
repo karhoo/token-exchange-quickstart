@@ -118,7 +118,7 @@ KarhooUISDK.setConfiguration(object: KarhooUISDKConfiguration {
     override fun environment() = KarhooEnvironment.Sandbox()
     override fun authenticationMethod() = AuthenticationMethod.TokenExchange(
         clientId = "your-app-id",
-	    scope = "openid profile email phone https://karhoo.com/traveller")
+        scope = "openid profile email phone https://karhoo.com/traveller")
 })
 
 // ...
