@@ -1,7 +1,16 @@
 # How to get started with token exchange
 
-This repository guides you through a process of generating valid JWT tokens
-so that they can be used in the token exchange flow on Karhoo sandbox environment.
+This repository guides you through a process of integrating
+your external authentication system with the Karhoo platform.
+
+If you are not familiar with the token exchange flow you can read about it here:
+https://developer.karhoo.com/reference#token-exchange
+
+
+This tutorial focuses on issuing JWT tokens as a proof of your users being authenticated
+within your authentication system.
+
+You will use those issued tokens to authenticate with the Karhoo Platform on behalf of your users.
 
 ## 1. Generating keys
 
@@ -64,7 +73,7 @@ curl --request GET --url http://localhost:8080/jwks > jwks.json
 
 Having a `jwks.json` file created you can now
 host it on your servers as a static file or just share the file with Karhoo
-so that it can be registered as a valid verification key for your app.
+so it can be registered as a valid verification key for your app.
 Once it is done you will be provided with a `client_id`
 uniquely identifying your application in the Karhoo platform.
 
@@ -110,8 +119,7 @@ Please provide your user details:
 eyJra...zRQ7Tn3A
 ```
 
-You can now use the output of this command
-as a valid token within Karhoo SDK:
+You can now use the output of this command as a valid token within Karhoo SDK:
 
 ```kotlin
 /* Initializing SDK with your clientId */
@@ -134,6 +142,9 @@ KarhooApi.authService.login(token = "eyJra...zRQ7Tn3A").execute {
     }
 }
 ```
+
+It is also possible to verify issued tokens
+by using [the token exchange endpoint directly from our API explorer](https://developer.karhoo.com/reference#post_oauth-v2-token-exchange).
 
 ## 4. Implementing it in your backend
 
