@@ -1,0 +1,15 @@
+{
+  "name": "token-exchange-provider",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Karhoo",
+  "license": "MIT",
+  "dependencies": {
+    "jose": "^1.25.0",
+    "uuid": "^7.0.2"
+  }
+}
