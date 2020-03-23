@@ -63,8 +63,10 @@ curl --request GET --url http://localhost:8080/jwks > jwks.json
 ```
 
 Having a `jwks.json` file created you can now
-host it on your servers as a static file or just share it with Karhoo
+host it on your servers as a static file or just share the file with Karhoo
 so that it can be registered as a valid verification key for your app.
+Once it is done you will be provided with a `client_id`
+uniquely identifying your application in the Karhoo platform.
 
 ## 3. Issuing tokens
 
