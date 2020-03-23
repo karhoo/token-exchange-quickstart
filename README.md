@@ -18,7 +18,7 @@ The **public key** will be shared with Karhoo to verify issued tokens.
   openssl genrsa -out keys/private.pem 2048
   openssl rsa -in keys/private.pem -pubout -out keys/public.pem
 
-  # Generate PKCS#8 equivalent of the keys
+  # Generate PKCS#8 equivalent of the keys. It is needed just for Java implementation in examples
   openssl pkcs8 -topk8 -inform PEM -outform DER -in keys/private.pem -out keys/private.der -nocrypt
   openssl rsa -in keys/private.pem -pubout -outform DER -out keys/public.der
   ```
