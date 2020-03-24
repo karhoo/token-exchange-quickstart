@@ -132,6 +132,19 @@ KarhooApi.authService.login(token = "eyJra...zRQ7Tn3A").execute {
 
 It is also possible to authenticate with issued tokens using [the token exchange endpoint directly from our API explorer](https://developer.karhoo.com/reference#post_oauth-v2-token-exchange).
 
+**NOTE: Issuing tokens by developers**
+
+  Please bear in mind that make jwt command uses keys stored on your local computer. In order to make it work for other developers you need to share your keys and instruct them to use the full command chain:
+
+  ```
+  docker run -d -p 8080:8080 \
+      --name token-exchange \
+      --volume ~/shared-keys/public.pem:/keys/public.pem:ro \
+      --volume ~/shared-keys/private.pem:/keys/private.pem:ro \
+      karhoo/token-exchange-quickstart
+  docker exec -ti token-exchange make jwt
+  ```
+
 ## 4. Implementing it in your backend
 
 Finally, once you have successfully authenticated a user using Karhoo SDK and the tokens you issued, check out the examples on how both the JWKS endpoint and token generation can be implemented in your code.
