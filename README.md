@@ -70,7 +70,7 @@ Once it is done you will be provided with a `client_id` uniquely identifying you
 
 It is time to start issuing tokens. JWTs should have the following payload:
 
-```json
+```
 {
   "jti": "b961af11-462e-4685-bca6-c81bf8081cc4",  // Unique token identifier
   "aud": "https://sso.sandbox.karhoo.com/oauth/v2/token-exchange", // Audience
@@ -82,7 +82,7 @@ It is time to start issuing tokens. JWTs should have the following payload:
   "family_name": "Doe",            // Last name
   "email": "john.doe@karhoo.com",  // Verified email
   "phone_number": "+15005550006",  // Verified phone number in E.164 format
-  "locale": "en"   			    // End-User's locale (BCP47 [RFC5646] format)
+  "locale": "en"                   // End-User's locale (BCP47 [RFC5646] format)
 }
 ```
 
