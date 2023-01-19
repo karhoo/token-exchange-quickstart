@@ -1,0 +1,103 @@
+run:
+  tests: true
+  timeout: 5m
+    #modules-download-mode: readonly
+  build-tags:
+    - acceptance_test
+    - integration_test
+linters:
+  disable-all: true
+  enable:
+    # Default linters
+    - deadcode
+    - errcheck
+    - gosimple
+    - govet
+    - ineffassign
+    - staticcheck
+    - structcheck
+    - typecheck
+    - unused
+    - varcheck
+    # Disable all additional linters until fixes applied to iam/exchange-service repositories
+    - asciicheck
+    - bodyclose
+    #- depguard # Doesn't do anything unless configured
+    - dogsled
+    #- dupl
+    - errorlint
+    #- exhaustive
+    #- exhaustivestruct
+    - exportloopref
+    - forbidigo
+    #- funlen
+    #- gci use goimport for now
+    #- gochecknoglobals
+    - gochecknoinits
+    - gocognit
+    - goconst
+    #- gocritic
+    - gocyclo
+    #- godot
+    #- godox
+    #- goerr113
+    - gofmt
+    #- gofumpt
+    - goheader
+    - goimports
+    #- golint # Superseded by stylecheck
+    #- gomnd
+    #- gomodguard # Doesn't do anything unless configured
+    - goprintffuncname
+    - gosec
+    #- interfacer
+    #- lll
+    - makezero
+    #- maligned
+    - misspell
+    - nakedret
+    - nestif
+    #- nlreturn
+    - noctx
+    - nolintlint
+    #- paralleltest
+    - prealloc
+    - rowserrcheck
+    #- scopelint
+    - sqlclosecheck
+    - stylecheck
+    #- testpackage causing weird error
+    #- thelper Temporarily disabled because of golangci-lint regression
+    #- tparallel
+    - unconvert
+    - unparam
+    - whitespace
+    #- wrapcheck
+    #- wsl
+
+issues:
+  exclude-rules:
+    - path: /
+      text: "ST1003|SA1019: (package github.com/golang/protobuf/(proto|jsonpb|ptypes)|ptypes.*) is deprecated"
+    - path: (_test\.go|test/|testing/)
+      linters:
+        - gosec
+        - noctx
+        - unparam
+        - bodyclose
+        - goconst
+        - goerr113
+        - wrapcheck
+        - nestif
+    - path: _?mock\.go
+      linters:
+        - gosec
+        - noctx
+    - path: test/
+      linters:
+        - gosec
+        - noctx
+        - unparam
+        - bodyclose
+        - goconst
+        - goerr113
