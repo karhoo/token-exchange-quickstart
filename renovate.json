@@ -1,1 +1,1 @@
-{"enabled":false,"labels":["iam","renovate"],"packageRules":[{"addLabels":["iam"],"matchDepTypes":["minor","patch","pin","digest","major"]}]}
+{"enabled":false,"labels":["partners","renovate"],"packageRules":[{"addLabels":["partners"],"matchDepTypes":["minor","patch","pin","digest","major"]}]}
